@@ -16,6 +16,8 @@ This project demonstrates a full SQL-based data analytics workflow: starting fro
   - Company Stage (e.g., Series A, Series C)
   - Country, Funding Raised
 
+[Layoffs Dataset on GitHub](https://github.com/AlexTheAnalyst/MySQL-YouTube-Series/blob/main/layoffs.csv)
+
 ---
 
 ## 🛠 Tools & Skills Used
