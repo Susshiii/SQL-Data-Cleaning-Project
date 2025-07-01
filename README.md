@@ -1,31 +1,32 @@
-# SQL-Data-Cleaning-Project
-Cleaned and standardized messy layoff data using SQL (MySQL).
-
-# 🧹 SQL Data Cleaning Project
+# 🧠 SQL Data Cleaning + EDA Project – Layoffs Dataset
 
 ## 📌 Overview
-This project focuses on cleaning a real-world dataset containing layoff information. The data was taken from a GitHub resource provided in the **Alex The Analyst Bootcamp**.
+This project demonstrates a full SQL-based workflow: starting with cleaning a messy layoffs dataset and ending with extracting key insights using exploratory data analysis (EDA). The dataset was provided in the [Alex The Analyst Bootcamp](https://www.youtube.com/@AlexTheAnalyst).
 
 ## 🛠 Tools Used
 - MySQL
-- SQL (CTEs, UPDATE, TRIM, REPLACE, DELETE, ROW_NUMBER)
+- SQL (CTEs, Window Functions, DATE formatting, Aggregations)
 
 ## 📂 Dataset
 - Dataset: `layoffs.csv`
-- Source: GitHub (via Alex The Analyst)
+- Source: GitHub via Alex The Analyst's course
 
-## ✅ Cleaning Steps Performed
-1. **Removed duplicate records** using `ROW_NUMBER()` and CTEs.
-2. **Standardized**:
-   - Company names (`TRIM`)
-   - Industry values (`LIKE` & `REPLACE`)
-   - Country names (`TRIM`)
-   - Date format using `STR_TO_DATE()`
-3. Handled **NULL values** by either replacing or deleting based on context.
-4. Dropped unnecessary columns (like `row_num`).
+---
 
-## 💡 Sample Query
+## 🔹 Part 1: Data Cleaning
+
+### ✅ Steps Performed:
+- Created a staging table to protect the original dataset
+- Removed duplicates using `ROW_NUMBER()`
+- Standardized:
+  - Company names (e.g., `TRIM(company)`)
+  - Industries (e.g., fixing `"Crypto "` → `"Crypto"`)
+  - Country names and Date formats
+- Handled missing/null values
+- Dropped unnecessary columns
+
+### 🧾 Sample Query:
 ```sql
 UPDATE layoffs_staging2
-SET company = TRIM(company);
-
+SET industry = 'Crypto'
+WHERE industry LIKE 'Crypto%';
